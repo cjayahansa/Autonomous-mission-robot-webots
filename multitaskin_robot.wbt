@@ -1,0 +1,1211 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.3333824201760206 0.3167213927727213 0.8879998430617468 1.7400425595397935
+  position 0.832181942470513 -0.7839262565096228 1.0027617245793454
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 0.07 0.01
+  floorSize 2 2
+  floorAppearance NULL
+}
+Robot {
+  translation 0.719286 0.531983 0.0253794
+  rotation -0.9284731196509625 0.00942154004109154 0.37128008385700323 0.032266388222091436
+  children [
+    DEF arm HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+      }
+      device [
+        RotationalMotor {
+          name "arm_motor_1"
+          minPosition -3.37420356016777e-08
+          maxPosition 3.14
+        }
+      ]
+      endPoint Solid {
+        translation 1.1623239691659771e-07 2.0362015451948996e-08 0.059990928338347176
+        children [
+          DEF arm_l_motor_1 SliderJoint {
+            jointParameters JointParameters {
+            }
+            device [
+              LinearMotor {
+                name "arm_l_motor_1"
+                minPosition -0.1
+                maxPosition 0.15
+              }
+            ]
+            endPoint Solid {
+              translation -9.63388e-08 -0.05 0.02
+              rotation 0.009182788848764348 0.9999326256062099 -0.007100749061205873 4.733241690756699e-06
+              children [
+                DEF arm_head Solid {
+                  translation 0 -0.025 0
+                  rotation 0 0 1 4.692820414042842e-06
+                  children [
+                    DEF arm_head_L SliderJoint {
+                      jointParameters JointParameters {
+                        position 7.740125289130705e-10
+                        axis 1 0 0
+                      }
+                      device [
+                        LinearMotor {
+                          name "arm_head_L"
+                          minPosition -7.538411146207102e-06
+                          maxPosition 0.02
+                        }
+                      ]
+                      endPoint Solid {
+                        translation -0.03298829922598747 8.85076e-08 -0.015
+                        rotation 0.580284637974498 -0.7836879965441842 0.22159165824409688 1.0836694277118195e-09
+                        children [
+                          DEF arm_head_L Shape {
+                            appearance PBRAppearance {
+                              baseColor 1 1 0
+                              roughness 1
+                              metalness 0
+                            }
+                            geometry Box {
+                              size 0.003 0.02 0.04
+                            }
+                          }
+                        ]
+                        name "solid(1)"
+                        boundingObject USE arm_head_L
+                        physics Physics {
+                        }
+                      }
+                    }
+                    DEF arm_head_R SliderJoint {
+                      jointParameters JointParameters {
+                        position 7.010593635299785e-10
+                        axis 1 0 0
+                      }
+                      device [
+                        LinearMotor {
+                          name "arm_head_R"
+                          minPosition -0.02
+                          maxPosition 0.02
+                        }
+                      ]
+                      endPoint Solid {
+                        translation 0.034000000701059366 0 -0.015
+                        rotation 1.18409e-08 -1.53638e-09 1 3.14159
+                        children [
+                          DEF arm_head_R Shape {
+                            appearance PBRAppearance {
+                              baseColor 1 1 0
+                              roughness 1
+                              metalness 0
+                            }
+                            geometry Box {
+                              size 0.003 0.02 0.04
+                            }
+                          }
+                        ]
+                        boundingObject USE arm_head_R
+                        physics Physics {
+                        }
+                      }
+                    }
+                    DEF arm_head Shape {
+                      appearance PBRAppearance {
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Box {
+                        size 0.07 0.02 0.01
+                      }
+                    }
+                  ]
+                  boundingObject USE arm_head
+                  physics Physics {
+                  }
+                }
+                DEF arm_2 Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0.5 1
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 0.02 0.07 0.01
+                  }
+                }
+              ]
+              name "solid(5)"
+              boundingObject USE arm_2
+              physics Physics {
+              }
+            }
+          }
+          DEF arm Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.4 0.1
+              roughness 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.04 0.04 0.1
+            }
+          }
+        ]
+        name "solid(4)"
+        boundingObject USE arm
+        physics Physics {
+        }
+      }
+    }
+    Lidar {
+      translation 4.07848e-08 -0.04 0
+      rotation 0 0 1 -1.5707953071795862
+      fieldOfView 4.08
+      numberOfLayers 1
+      maxRange 0.12
+    }
+    DistanceSensor {
+      translation 0.02 -0.0370711 -0.00707099
+      rotation 0.35740699927911007 0.35740699927911007 -0.8628559982596194 1.71777
+      name "ps4"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation 0.01 -0.0370711 -0.007071
+      rotation 0.35740699927911007 0.35740699927911007 -0.8628559982596194 1.71777
+      name "ps3"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation -1.35048e-14 -0.0370711 -0.00707101
+      rotation 0.35740699927911007 0.35740699927911007 -0.8628559982596194 1.71777
+      name "ps2"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation -0.01 -0.0370711 -0.00707102
+      rotation 0.35740699927911007 0.35740699927911007 -0.8628559982596194 1.71777
+      name "ps1"
+      type "infra-red"
+    }
+    DistanceSensor {
+      translation -0.02 -0.0370711 -0.00707103
+      rotation 0.35740699927911007 0.35740699927911007 -0.8628559982596194 1.71777
+      name "ps0"
+      type "infra-red"
+    }
+    Camera {
+      translation 0 -0.04 0.007
+      rotation 0 0 1 -1.5707953071795862
+      width 512
+      height 512
+    }
+    DEF Cammera Pose {
+      translation 0 -0.031 0.007
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.004
+            radius 0.01
+          }
+        }
+      ]
+    }
+    DEF LIDAR Pose {
+      translation 0 -0.021 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.01
+            radius 0.02
+          }
+        }
+      ]
+    }
+    Solid {
+      translation 0 -0.02 -0.009
+      children [
+        DEF front_wheel Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.011
+            subdivision 4
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE front_wheel
+      physics Physics {
+      }
+    }
+    Solid {
+      translation 0 0.03 -0.009
+      children [
+        DEF front_wheel Shape {
+          appearance PBRAppearance {
+            baseColor 0.4 1 1
+            roughness 1
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.01
+            subdivision 4
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE front_wheel
+      physics Physics {
+      }
+    }
+    DEF left_wheel HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2237.1292238182846
+      }
+      device [
+        RotationalMotor {
+          name "left wheel motor"
+        }
+      ]
+      endPoint Solid {
+        translation 0.03999999999057403 -9.05134166556104e-07 3.3468392301987674e-06
+        rotation 0.15507574320532724 0.9756550907756066 0.1550762964252058 1.595443497861264
+        children [
+          DEF wheel Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.3 1
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.02
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel
+        physics Physics {
+        }
+      }
+    }
+    DEF right_wheel HingeJoint {
+      jointParameters HingeJointParameters {
+        position 2596.987472073583
+      }
+      device [
+        RotationalMotor {
+          name "right wheel motor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.039999999962705944 -3.4428653060316534e-06 -1.5128151629999053e-06
+        rotation -0.6476434412778607 -0.4013885172200327 -0.6476459149980593 3.904995604353313
+        children [
+          DEF wheel_right Shape {
+            appearance PBRAppearance {
+              baseColor 1 0.3 1
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.02
+            }
+          }
+        ]
+        boundingObject USE wheel_right
+        physics Physics {
+        }
+      }
+    }
+    Pose {
+      children [
+        DEF Body Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.02
+            radius 0.04
+          }
+        }
+      ]
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+  controller "linefollowingadvancecamera"
+}
+Group {
+  children [
+    Solid {
+      translation 0.724837 0.385433 0.0249894
+      rotation -0.9999999928597715 -8.429743944998716e-05 -8.470182148071042e-05 -1.5707966276963035
+      children [
+        DEF Box Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.03 0.03 0.03
+          }
+        }
+      ]
+      name "solid(46)"
+      boundingObject USE Box
+      physics Physics {
+      }
+    }
+    Solid {
+      translation 0.721519 -0.482576 0.02498940519485193
+      rotation -0.5757464026179604 0.5805447095142239 0.5757464026179607 2.089610069865032
+      children [
+        DEF Box Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.03 0.03 0.03
+          }
+        }
+      ]
+      name "solid(47)"
+      boundingObject USE Box
+      physics Physics {
+      }
+    }
+    Solid {
+      translation 0.717199 0.0020037100000000097 0.02498940519485194
+      rotation -0.5793400202525857 0.5763528176966489 -0.5763528176966493 2.0914130473118604
+      children [
+        DEF Box Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.03 0.03 0.03
+          }
+        }
+      ]
+      name "solid(48)"
+      boundingObject USE Box
+      physics Physics {
+      }
+    }
+    WoodenBox {
+      translation -0.309995 0.480002 0.03960655522846622
+      rotation 2.5420837478973494e-12 -2.8706520384246345e-12 -1 2.209367428217599e-05
+      name "wooden box(1)"
+      size 0.08 0.08 0.06
+      mass 1
+    }
+    WoodenBox {
+      translation 0.090001 0.489992 0.03460657821266182
+      rotation -1.1915050893120391e-11 6.573522995360985e-12 -1 2.209367428202708e-05
+      name "wooden box(2)"
+      size 0.08 0.08 0.05
+      mass 1
+    }
+    Solid {
+      translation 0.72 0.39 0.01
+      rotation 0 0 1 1.01503e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.37 0.0001
+          }
+        }
+      ]
+      name "solid(45)"
+    }
+    Solid {
+      translation -0.45 0.15 0.01
+      rotation 0 0 1 1.01503e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.37 0.0001
+          }
+        }
+      ]
+      name "solid(30)"
+    }
+    Solid {
+      translation 0.53 -0.49 0.01
+      rotation 0 0 1 -1.5707953071795862
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.37 0.0006
+          }
+        }
+      ]
+      name "solid(41)"
+    }
+    Solid {
+      translation 0.72 -0.31 0.01
+      rotation 0 0 1 1.01503e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.37 0.0001
+          }
+        }
+      ]
+      name "solid(42)"
+    }
+    Solid {
+      translation -0.68 0.51 0.01
+      rotation 0 0 1 1.01503e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.37 0.0001
+          }
+        }
+      ]
+      name "solid(44)"
+    }
+    Solid {
+      translation 0.72 0.06 0.01
+      rotation 0 0 1 1.01503e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.37 0.0004
+          }
+        }
+      ]
+      name "solid(43)"
+    }
+    Solid {
+      translation 0.39 -0.49 0.01
+      rotation 0 0 1 -1.5707953071795862
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(40)"
+    }
+    Solid {
+      translation 0.35 -0.44 0.01
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(38)"
+    }
+    Solid {
+      translation 0.35 -0.35 0.01
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(39)"
+    }
+    Solid {
+      translation 0.290002 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(35)"
+    }
+    Solid {
+      translation 0.210002 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(34)"
+    }
+    Solid {
+      translation 0.210002 0.38 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(16)"
+    }
+    Solid {
+      translation 0.300002 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(36)"
+    }
+    Solid {
+      translation 0.300002 0.38 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(15)"
+    }
+    Solid {
+      translation 0.090002 0.38 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(11)"
+    }
+    Solid {
+      translation -0.570001 -0.0299986 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.23 0.0001
+          }
+        }
+      ]
+      name "solid(31)"
+    }
+    Solid {
+      translation -0.68 0.150006 0.01
+      rotation 0 0 1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.36 0.0001
+          }
+        }
+      ]
+      name "solid(32)"
+    }
+    Solid {
+      translation -0.089998 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(24)"
+    }
+    Solid {
+      translation -0.179998 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(25)"
+    }
+    Solid {
+      translation -0.279998 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(26)"
+    }
+    Solid {
+      translation -0.259998 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(33)"
+    }
+    Solid {
+      translation -0.389998 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.13 0.0001
+          }
+        }
+      ]
+      name "solid(29)"
+    }
+    Solid {
+      translation -0.449998 0.44 0.01
+      rotation 0 0 1 3.14159
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(27)"
+    }
+    Solid {
+      translation -0.449998 0.36 0.01
+      rotation 0 0 1 3.14159
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(28)"
+    }
+    Solid {
+      translation 0.08 0.2 0.01
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(9)"
+    }
+    Solid {
+      translation 0.11 0.2 0.01
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(10)"
+    }
+    Solid {
+      translation 0.0400004 0.24 0.01
+      rotation 0 0 1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(12)"
+    }
+    Solid {
+      translation 0.0400008 0.28 0.01
+      rotation 0 0 1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(13)"
+    }
+    Solid {
+      translation 0.0400014 0.34 0.01
+      rotation 0 0 1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(14)"
+    }
+    Solid {
+      translation 0.120002 0.38 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(17)"
+    }
+    Solid {
+      translation 0.350002 0.42 0.01
+      rotation 0 0 1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(18)"
+    }
+    Solid {
+      translation 0.350002 0.44 0.01
+      rotation 0 0 1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(19)"
+    }
+    Solid {
+      translation 0.120002 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(20)"
+    }
+    Solid {
+      translation 0.110002 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(21)"
+    }
+    Solid {
+      translation 0.050002 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(22)"
+    }
+    Solid {
+      translation -0.019998 0.48 0.01
+      rotation 0 0 1 1.57079
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(23)"
+    }
+    Solid {
+      translation 0.35 -0.26 0.01
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+    }
+    Solid {
+      translation 0.35 -0.35 0.01
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(37)"
+    }
+    Solid {
+      translation 0.35 -0.19 0.01
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(1)"
+    }
+    Solid {
+      translation 0.35 -0.11 0.01
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+    Solid {
+      translation 0.31 -0.07 0.01
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(3)"
+    }
+    Solid {
+      translation 0.26 -0.07 0.01
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(4)"
+    }
+    Solid {
+      translation 0.22 -0.03 0.01
+      rotation 0 0 -1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(5)"
+    }
+    Solid {
+      translation 0.22 0.06 0.01
+      rotation 0 0 -1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(6)"
+    }
+    Solid {
+      translation 0.22 0.15 0.01
+      rotation 0 0 -1 -5.307179586466759e-06
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(7)"
+    }
+    Solid {
+      translation 0.18 0.2 0.01
+      rotation 0 0 1 1.5708
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.09 0.0001
+          }
+        }
+      ]
+      name "solid(8)"
+    }
+  ]
+}
